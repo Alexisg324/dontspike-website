@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't Spike — Drink Spiking Awareness</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E94E1B;
+    --yellow: #FDCC07;
+    --teal: #3BBAD2;
+    --pink: #E62A55;
+    --amber: #ED8C00;
+    --cream: #FFFAF3;
+    --offwhite: #EFEFF0;
+    --dark: #161616;
+    --font: 'Poppins', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    background: var(--cream);
+    border-bottom: 3px solid var(--orange);
+  }
+
+  .nav-logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--orange);
+    letter-spacing: -1px;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--teal); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--dark);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+
+  .nav-cta {
+    background: var(--orange);
+    color: white !important;
+    padding: 0.5rem 1.4rem;
+    border-radius: 50px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--dark) !important; color: white !important; }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    background: var(--orange);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+  }
+  .hero-bg-circle.c1 { width: 600px; height: 600px; background: var(--yellow); top: -200px; right: -100px; }
+  .hero-bg-circle.c2 { width: 300px; height: 300px; background: var(--teal); bottom: -80px; left: 100px; }
+
+  /* Wavy stripe decoration */
+  .hero-stripes {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--yellow) 0px, var(--yellow) 40px,
+      var(--teal) 40px, var(--teal) 80px,
+      var(--pink) 80px, var(--pink) 120px,
+      var(--orange) 120px, var(--orange) 160px
+    );
+    opacity: 0.3;
+    clip-path: polygon(0 40%, 2% 20%, 4% 40%, 6% 20%, 8% 40%, 10% 20%, 12% 40%, 14% 20%, 16% 40%, 18% 20%, 20% 40%, 22% 20%, 24% 40%, 26% 20%, 28% 40%, 30% 20%, 32% 40%, 34% 20%, 36% 40%, 38% 20%, 40% 40%, 42% 20%, 44% 40%, 46% 20%, 48% 40%, 50% 20%, 52% 40%, 54% 20%, 56% 40%, 58% 20%, 60% 40%, 62% 20%, 64% 40%, 66% 20%, 68% 40%, 70% 20%, 72% 40%, 74% 20%, 76% 40%, 78% 20%, 80% 40%, 82% 20%, 84% 40%, 86% 20%, 88% 40%, 90% 20%, 92% 40%, 94% 20%, 96% 40%, 98% 20%, 100% 40%, 100% 100%, 0 100%);
+  }
+
+  .hero-content { position: relative; z-index: 2; }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+  }
+
+  .hero-title .highlight {
+    color: var(--yellow);
+    -webkit-text-stroke: 2px var(--yellow);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    max-width: 460px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+  .btn-primary { background: var(--yellow); color: var(--dark); }
+  .btn-secondary { background: transparent; color: white; border: 3px solid white; }
+  .btn-dark { background: var(--dark); color: white; }
+  .btn-orange { background: var(--orange); color: white; }
+  .btn-teal { background: var(--teal); color: white; }
+
+  .hero-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-lifesaver {
+    width: 320px;
+    height: 320px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12rem;
+    box-shadow: 12px 12px 0 var(--dark);
+    animation: float 4s ease-in-out infinite;
+    position: relative;
+  }
+
+  .hero-lifesaver::before {
+    content: '';
+    position: absolute;
+    inset: -16px;
+    border-radius: 50%;
+    border: 6px dashed rgba(255,255,255,0.4);
+    animation: spin 20s linear infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-3deg); }
+    50% { transform: translateY(-20px) rotate(3deg); }
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .stat-bubbles {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    pointer-events: none;
+  }
+
+  .stat-bubble {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: 0.8rem 1.2rem;
+    box-shadow: 4px 4px 0 var(--dark);
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: var(--dark);
+    white-space: nowrap;
+  }
+
+  .stat-bubble.sb1 { top: 10%; right: -10%; background: var(--yellow); }
+  .stat-bubble.sb2 { bottom: 20%; right: -15%; background: var(--teal); color: white; }
+  .stat-bubble.sb3 { top: 60%; left: -5%; background: var(--pink); color: white; }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: 6rem 3rem; }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--orange);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--orange);
+    padding-bottom: 0.3rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-body {
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #444;
+    max-width: 600px;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--orange);
+    border-radius: 24px;
+    padding: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 var(--dark);
+  }
+
+  .about-card::after {
+    content: '🛟';
+    position: absolute;
+    font-size: 8rem;
+    bottom: -1rem;
+    right: -1rem;
+    opacity: 0.2;
+  }
+
+  .about-card-quote {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-card-sub { font-size: 0.9rem; opacity: 0.85; line-height: 1.6; }
+
+  .about-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .badge {
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    border: 2px solid var(--dark);
+  }
+
+  .badge.teal { background: var(--teal); color: white; }
+  .badge.pink { background: var(--pink); color: white; }
+
+  /* ─── FACTS / RESOURCES ─── */
+  #resources {
+    background: var(--dark);
+    color: white;
+  }
+
+  #resources .section-label { color: var(--yellow); border-color: var(--yellow); }
+  #resources .section-title { color: white; }
+  #resources .section-body { color: rgba(255,255,255,0.7); }
+
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .fact-card {
+    background: #222;
+    border-radius: 20px;
+    padding: 2rem;
+    border-left: 5px solid var(--orange);
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fact-card:hover { transform: translateY(-6px); border-color: var(--yellow); }
+
+  .fact-card:nth-child(2) { border-color: var(--teal); }
+  .fact-card:nth-child(3) { border-color: var(--yellow); }
+  .fact-card:nth-child(4) { border-color: var(--pink); }
+  .fact-card:nth-child(5) { border-color: var(--amber); }
+  .fact-card:nth-child(6) { border-color: var(--teal); }
+
+  .fact-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .fact-card:nth-child(2) .fact-number { color: var(--teal); }
+  .fact-card:nth-child(3) .fact-number { color: var(--yellow); }
+  .fact-card:nth-child(4) .fact-number { color: var(--pink); }
+  .fact-card:nth-child(5) .fact-number { color: var(--amber); }
+  .fact-card:nth-child(6) .fact-number { color: var(--teal); }
+
+  .fact-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .fact-desc { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+  .signs-section {
+    margin-top: 4rem;
+    background: #1a1a1a;
+    border-radius: 24px;
+    padding: 3rem;
+    border: 2px solid #333;
+  }
+
+  .signs-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--yellow);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .signs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .sign-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #222;
+    border-radius: 12px;
+  }
+
+  .sign-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--orange);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .sign-item:nth-child(even) .sign-dot { background: var(--teal); }
+
+  .sign-text { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+
+  /* ─── SHARE STORY ─── */
+  #share {
+    background: var(--yellow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #share::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: var(--orange);
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+
+  .share-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  #share .section-label { color: var(--dark); border-color: var(--dark); }
+  #share .section-title { color: var(--dark); }
+  #share .section-body { color: rgba(0,0,0,0.7); }
+
+  .share-form {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 8px 8px 0 var(--dark);
+  }
+
+  .share-form h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group { margin-bottom: 1.2rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2.5px solid var(--offwhite);
+    border-radius: 12px;
+    font-family: var(--font);
+    font-size: 0.9rem;
+    color: var(--dark);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--orange); }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-note {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-methods { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    background: white;
+    border-radius: 16px;
+    border: 2px solid var(--offwhite);
+    text-decoration: none;
+    color: var(--dark);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .contact-method:hover { border-color: var(--orange); transform: translateX(6px); }
+
+  .contact-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--orange);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .contact-icon.teal { background: var(--teal); }
+  .contact-icon.yellow { background: var(--yellow); }
+
+  .contact-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; }
+  .contact-value { font-size: 0.95rem; font-weight: 600; color: var(--dark); }
+
+  .contact-form-side { position: relative; }
+
+  .contact-form {
+    background: var(--orange);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 8px 8px 0 var(--dark);
+  }
+
+  .contact-form h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-form .form-group label { color: rgba(255,255,255,0.8); }
+
+  .contact-form .form-group input,
+  .contact-form .form-group textarea,
+  .contact-form .form-group select {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.3);
+    color: white;
+  }
+
+  .contact-form .form-group input::placeholder,
+  .contact-form .form-group textarea::placeholder { color: rgba(255,255,255,0.5); }
+
+  .contact-form .form-group input:focus,
+  .contact-form .form-group textarea:focus { border-color: var(--yellow); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark);
+    color: white;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 5px solid var(--orange);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--orange);
+  }
+
+  .footer-logo span { color: var(--yellow); }
+
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--orange); }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 400;
+  }
+
+  /* ─── CRISIS BANNER ─── */
+  .crisis-banner {
+    background: var(--pink);
+    color: white;
+    text-align: center;
+    padding: 0.75rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .crisis-banner a { color: var(--yellow); text-decoration: underline; }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    #home, #about, .share-inner, #contact {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .facts-grid { grid-template-columns: 1fr 1fr; }
+    .signs-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+
+  @media (max-width: 600px) {
+    .facts-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero-lifesaver { width: 220px; height: 220px; font-size: 8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Crisis Banner -->
+<div class="crisis-banner">
+  🚨 If you or someone you know has been spiked, call 911 or visit your nearest emergency room immediately. <a href="tel:911">Call 911</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#home" class="nav-logo">Don't<span>*</span>Spike</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#share">Share Your Story</a></li>
+    <li><a href="#contact" class="nav-cta">Get Involved</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-stripes"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">🛟 Drink Safety Awareness</div>
+    <h1 class="hero-title">
+      Know the Signs.
+      <span class="highlight">Stay Safe.</span>
+      Speak Up.
+    </h1>
+    <p class="hero-subtitle">
+      Don't Spike is a movement dedicated to raising awareness about drink spiking — educating communities, empowering survivors, and making every night out safer for everyone.
+    </p>
+    <div class="hero-buttons">
+      <a href="#resources" class="btn btn-primary">Know the Signs</a>
+      <a href="#share" class="btn btn-secondary">Share Your Story</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-lifesaver">🛟</div>
+    <div class="stat-bubbles">
+      <div class="stat-bubble sb1">1 in 13 people affected</div>
+      <div class="stat-bubble sb2">Most cases unreported</div>
+      <div class="stat-bubble sb3">You are not alone</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade-in">
+  <div class="about-content">
+    <span class="section-label">Who We Are</span>
+    <h2 class="section-title">A community built on safety, awareness & solidarity.</h2>
+    <p class="section-body">
+      Don't Spike was founded to tackle one of the most underreported dangers in social settings — drink spiking. We believe that awareness is the first line of defense. Through education, storytelling, and community action, we're working to make every bar, club, festival, and gathering safer.
+    </p>
+    <p class="section-body" style="margin-top:1rem;">
+      We are not just a brand — we're a movement. Every post, every shared story, and every conversation is a step toward a world where no one has to worry about what's in their drink.
+    </p>
+    <div class="about-badges">
+      <span class="badge">Education First</span>
+      <span class="badge teal">Survivor Support</span>
+      <span class="badge pink">Community Led</span>
+      <span class="badge">Zero Tolerance</span>
+    </div>
+    <br>
+    <a href="#contact" class="btn btn-orange" style="margin-top:1rem;">Join the Movement</a>
+  </div>
+  <div class="about-visual">
+    <div class="about-card">
+      <p class="about-card-quote">"Your safety is non-negotiable. Watch your drink. Watch your friends."</p>
+      <p class="about-card-sub">Drink spiking affects people of all genders, ages, and backgrounds. It's a crime — and together, we can prevent it. Don't Spike is here to ensure no one faces it alone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources" class="fade-in">
+  <span class="section-label">Facts & Education</span>
+  <h2 class="section-title">What you need to know.</h2>
+  <p class="section-body">Drink spiking is more common than most people realize. Here are the facts — because knowing them could save a life.</p>
+
+  <div class="facts-grid">
+    <div class="fact-card">
+      <div class="fact-number">1 in 13</div>
+      <div class="fact-title">People have been spiked</div>
+      <div class="fact-desc">Studies suggest that 1 in 13 people have experienced drink spiking at some point in their lives — and most go unreported.</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-number">~80%</div>
+      <div class="fact-title">Cases go unreported</div>
+      <div class="fact-desc">The vast majority of drink spiking incidents are never reported to authorities, making the true scale of the problem much larger.</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-number">15–30</div>
+      <div class="fact-title">Minutes to take effect</div>
+      <div class="fact-desc">Many spiking substances begin taking effect within 15–30 minutes of consumption, making early recognition critical.</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-number">Any</div>
+      <div class="fact-title">Drink can be spiked</div>
+      <div class="fact-desc">Alcoholic or non-alcoholic — any beverage can be tampered with. Never assume your drink is safe if left unattended.</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-number">All</div>
+      <div class="fact-title">Genders are affected</div>
+      <div class="fact-desc">While women are disproportionately targeted, drink spiking affects people of all genders. It's everyone's issue.</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-number">You</div>
+      <div class="fact-title">Can make a difference</div>
+      <div class="fact-desc">Awareness, bystander action, and speaking up are the most powerful tools we have. Every conversation counts.</div>
+    </div>
+  </div>
+
+  <div class="signs-section fade-in">
+    <div class="signs-title">⚠️ Signs a Drink May Have Been Spiked</div>
+    <div class="signs-grid">
+      <div class="sign-item"><div class="sign-dot"></div><div class="sign-text">Sudden dizziness or disorientation not explained by alcohol consumed</div></div>
+      <div class="sign-item"><div class="sign-dot"></div><div class="sign-text">Feeling much more intoxicated than expected for the amount drunk</div></div>
+      <div class="sign-item"><div class="sign-dot"></div><div class="sign-text">Nausea, vomiting, or loss of coordination</div></div>
+      <div class="sign-item"><div class="sign-dot"></div><div class="sign-text">Unusual taste, appearance, or smell in your drink</div></div>
+      <div class="sign-item"><div class="sign-dot"></div><div class="sign-text">Blurred vision or difficulty focusing</div></div>
+      <div class="sign-item"><div class="sign-dot"></div><div class="sign-text">Sudden confusion, memory gaps, or blackouts</div></div>
+      <div class="sign-item"><div class="sign-dot"></div><div class="sign-text">Feeling paralyzed, unable to move or speak clearly</div></div>
+      <div class="sign-item"><div class="sign-dot"></div><div class="sign-text">Unconsciousness or difficulty staying awake</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARE STORY -->
+<section id="share" class="fade-in">
+  <div class="share-inner">
+    <div>
+      <span class="section-label">Share Your Story</span>
+      <h2 class="section-title">Your voice can protect someone else.</h2>
+      <p class="section-body">
+        We're collecting stories from people who have been affected by drink spiking — as survivors, witnesses, or loved ones — for educational purposes. Your story, shared on your terms, can help others recognize the signs and take action.
+      </p>
+      <p class="section-body" style="margin-top:1rem;">
+        All submissions are voluntary and confidential. You choose how much to share and whether to remain anonymous. Together, we amplify what's too often silenced.
+      </p>
+      <br>
+      <a href="mailto:hello@dontspike.com" class="btn btn-dark" style="margin-top:1rem;">Email Us Directly</a>
+    </div>
+
+    <div class="share-form">
+      <h3>🎙️ Submit Your Story</h3>
+      <div class="form-group">
+        <label>Your Name (or Anonymous)</label>
+        <input type="text" placeholder="First name or leave blank">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="We'll never share this">
+      </div>
+      <div class="form-group">
+        <label>Your Role</label>
+        <select>
+          <option>Survivor</option>
+          <option>Witness / Bystander</option>
+          <option>Friend / Family Member</option>
+          <option>Healthcare Professional</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Story</label>
+        <textarea placeholder="Share as much or as little as you're comfortable with..."></textarea>
+      </div>
+      <button class="btn btn-orange" style="width:100%;">Submit Your Story →</button>
+      <p class="form-note">By submitting, you agree that your story may be used for educational purposes. Your privacy is always protected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+  <div>
+    <span class="section-label">Get Involved</span>
+    <h2 class="section-title">Let's build this movement together.</h2>
+    <p class="section-body">
+      Whether you're a venue owner, journalist, educator, advocate, or simply want to get involved — we'd love to hear from you. Don't Spike is stronger with every voice that joins.
+    </p>
+    <div class="contact-methods">
+      <a href="mailto:hello@dontspike.com" class="contact-method">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email Us</div>
+          <div class="contact-value">hello@dontspike.com</div>
+        </div>
+      </a>
+      <a href="https://instagram.com/dontspike" class="contact-method">
+        <div class="contact-icon teal">📸</div>
+        <div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">@dontspike</div>
+        </div>
+      </a>
+      <a href="#share" class="contact-method">
+        <div class="contact-icon yellow">🎙️</div>
+        <div>
+          <div class="contact-label">Interview Requests</div>
+          <div class="contact-value">Share your story for educational use</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-form-side">
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>I'm reaching out as a...</label>
+        <select>
+          <option>Individual / Supporter</option>
+          <option>Journalist / Media</option>
+          <option>Venue / Event Organizer</option>
+          <option>Educator / School</option>
+          <option>Healthcare Professional</option>
+          <option>Brand / Partner</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="How can we work together?"></textarea>
+      </div>
+      <button class="btn btn-primary" style="width:100%;">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Don't<span>*</span>Spike</div>
+    <div class="footer-tagline">Drink spiking awareness & education</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#share">Share Your Story</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Don't Spike. All rights reserved.</div>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Form submit placeholders
+  document.querySelectorAll('button.btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const form = e.target.closest('.share-form, .contact-form');
+      if (form) {
+        e.preventDefault();
+        btn.textContent = '✅ Submitted! We\'ll be in touch.';
+        btn.style.background = '#161616';
+        setTimeout(() => {
+          btn.textContent = btn.dataset.original || 'Submit →';
+          btn.style.background = '';
+        }, 3000);
+      }
+    });
+  });
+</script>
+</body>
+</html>
