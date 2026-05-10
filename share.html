@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Story — Don't Spike</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="crisis-banner">
+  🚨 If you or someone you know has been spiked, call 911 or visit your nearest emergency room immediately. <a href="tel:911">Call 911</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Don't<span>*</span>Spike</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="share.html" class="active">Share Your Story</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Involved</a></li>
+  </ul>
+</nav>
+
+<div class="page-top">
+
+  <section id="share" class="fade-in">
+    <div class="share-inner">
+      <div>
+        <span class="section-label">Share Your Story</span>
+        <h1 class="section-title">Your voice can protect someone else.</h1>
+        <p class="section-body">
+          We're collecting stories from people who have been affected by drink spiking — as survivors, witnesses, or loved ones — for educational purposes. Your story, shared on your terms, can help others recognize the signs and take action.
+        </p>
+        <p class="section-body" style="margin-top:1rem;">
+          All submissions are voluntary and confidential. You choose how much to share and whether to remain anonymous. Together, we amplify what's too often silenced.
+        </p>
+        <br>
+        <a href="mailto:info@dontspike.com" class="btn btn-dark" style="margin-top:1rem;">Email Us Directly</a>
+      </div>
+
+      <div class="share-form">
+        <h3>🎙️ Submit Your Story</h3>
+        <div class="form-group">
+          <label>Your Name (or Anonymous)</label>
+          <input type="text" placeholder="First name or leave blank">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="We'll never share this">
+        </div>
+        <div class="form-group">
+          <label>Your Role</label>
+          <select>
+            <option>Survivor</option>
+            <option>Witness / Bystander</option>
+            <option>Friend / Family Member</option>
+            <option>Healthcare Professional</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Story</label>
+          <textarea placeholder="Share as much or as little as you're comfortable with..."></textarea>
+        </div>
+        <button class="btn btn-orange" style="width:100%;" id="submitBtn">Submit Your Story →</button>
+        <p class="form-note">By submitting, you agree that your story may be used for educational purposes. Your privacy is always protected.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it matters -->
+  <section style="background: var(--dark); color: white;" class="fade-in">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <span class="section-label" style="color: var(--yellow); border-color: var(--yellow);">Why Share</span>
+      <h2 class="section-title" style="color: white;">Stories break the silence.</h2>
+      <p style="font-size: 1.05rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
+        80% of drink spiking incidents go unreported. By sharing your experience — even anonymously — you help others recognize warning signs, understand they're not alone, and take action. Every story shared is a step toward change.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;">
+        <div style="text-align: center;">
+          <div style="font-size: 3rem; font-weight: 900; color: var(--yellow);">100%</div>
+          <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.3rem;">Confidential</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 3rem; font-weight: 900; color: var(--teal);">Anonymous</div>
+          <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.3rem;">Option Available</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 3rem; font-weight: 900; color: var(--orange);">Always</div>
+          <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.3rem;">Your Choice</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Don't<span>*</span>Spike</div>
+    <div class="footer-tagline">Drink spiking awareness & education</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="share.html">Share Your Story</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Don't Spike. All rights reserved.</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+document.getElementById('submitBtn').addEventListener('click', function() {
+  this.textContent = '✅ Submitted! We\'ll be in touch.';
+  this.style.background = '#161616';
+  setTimeout(() => {
+    this.textContent = 'Submit Your Story →';
+    this.style.background = '';
+  }, 3000);
+});
+</script>
+
+</body>
+</html>
