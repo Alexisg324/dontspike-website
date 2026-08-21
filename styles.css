@@ -46,8 +46,11 @@ nav {
   color: var(--orange);
   letter-spacing: -1px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 .nav-logo span { color: var(--teal); }
+.nav-logo-img { height: 42px; width: auto; display: block; }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
   font-size: 0.85rem;
@@ -162,6 +165,7 @@ section { padding: 6rem 3rem; }
   display: flex; align-items: center; justify-content: center; font-size: 12rem;
   box-shadow: 12px 12px 0 var(--dark); animation: float 4s ease-in-out infinite; position: relative;
 }
+.hero-lifesaver-icon { width: 68%; height: auto; }
 .hero-lifesaver::before {
   content: ''; position: absolute; inset: -16px; border-radius: 50%;
   border: 6px dashed rgba(255,255,255,0.4); animation: spin 20s linear infinite;
@@ -359,6 +363,7 @@ footer {
 }
 .footer-logo { font-size: 1.6rem; font-weight: 900; color: var(--orange); }
 .footer-logo span { color: var(--yellow); }
+.footer-logo-img { height: 52px; width: auto; display: block; }
 .footer-tagline { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; }
 .footer-links { display: flex; gap: 2rem; list-style: none; }
 .footer-links a { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
