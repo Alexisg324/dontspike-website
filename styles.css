@@ -382,7 +382,9 @@ footer {
   .grid-3-cols { grid-template-columns: 1fr; }
   #home, #about, .share-inner, #contact, #partner { grid-template-columns: 1fr; gap: 3rem; }
   nav { padding: 1rem 1.5rem; }
-  .nav-links { gap: 1.5rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.72rem; letter-spacing: 0.5px; }
+  .nav-cta { padding: 0.5rem 1rem; }
   section { padding: 4rem 1.5rem; }
   .facts-grid { grid-template-columns: 1fr 1fr; }
   .signs-grid { grid-template-columns: 1fr; }
