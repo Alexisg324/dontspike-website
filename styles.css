@@ -411,6 +411,11 @@ section { padding: 6rem 3rem; }
   background: var(--yellow); color: var(--dark); border-radius: 12px; padding: 1rem 1.25rem;
   font-size: 0.82rem; font-weight: 700; line-height: 1.6; margin-bottom: 1.25rem; border: 2px solid var(--dark);
 }
+.sweeps-gform-wrap {
+  border-radius: 16px; overflow: hidden; border: 2px solid var(--offwhite);
+  margin-bottom: 1.25rem; background: white;
+}
+.sweeps-gform-wrap iframe { display: block; width: 100%; border: none; }
 .sweeps-prize-strip {
   margin-top: 4rem; background: var(--dark); color: white; border-radius: 24px;
   padding: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
