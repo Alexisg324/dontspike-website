@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Entered! — Don't Spike Sweepstakes</title>
+<meta name="description" content="Thanks for your order — you're entered in the Don't Spike PlayStation 5 Pro Sweepstakes.">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="crisis-banner">
+  🚨 If you or someone you know has been spiked, call 911 or visit your nearest emergency room immediately. <a href="tel:911">Call 911</a>
+</div>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="/assets/logo.png" alt="Don't Spike" class="nav-logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/resources/">Resources</a></li>
+    <li><a href="/share/">Share Your Story</a></li>
+    <li><a href="/partner/">Partner With Us</a></li>
+    <li><a href="/contact/">Get Involved</a></li>
+    <li><a href="/#donate" class="nav-cta">Donate</a></li>
+  </ul>
+</nav>
+
+<div class="page-top">
+  <section class="fade-in" style="text-align: center;">
+    <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+    <span class="section-label">Order Confirmed</span>
+    <h1 class="section-title">You're in!</h1>
+    <p class="section-body" style="margin: 0 auto 1.5rem;">
+      Thanks for ordering a pair of Don't Spike crew socks — you're automatically entered in the PlayStation 5 Pro Sweepstakes. We'll use the email address on your order to track your entry.
+    </p>
+    <p class="section-body" style="margin: 0 auto 2rem; font-weight: 700;">
+      Please note: socks ship in 6–8 weeks.
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/sweepstakes-rules/" class="btn btn-orange">Official Rules</a>
+      <a href="/" class="btn btn-secondary" style="color: var(--dark); border-color: var(--dark);">Back to Home</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo"><img src="/assets/logo.png" alt="Don't Spike" class="footer-logo-img"></div>
+    <div class="footer-tagline">Drink spiking awareness & education</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/resources/">Resources</a></li>
+    <li><a href="/share/">Share Your Story</a></li>
+    <li><a href="/#donate">Donate</a></li>
+    <li><a href="/partner/">Partner With Us</a></li>
+    <li><a href="/sweepstakes/">Sweepstakes</a></li>
+    <li><a href="/privacy/">Privacy Policy</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Don't Spike. All rights reserved.</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
