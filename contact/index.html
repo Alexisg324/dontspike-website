@@ -88,15 +88,16 @@ fbq('track', 'PageView');
         <form action="https://formsubmit.co/info@dontspike.com" method="POST">
           <input type="hidden" name="_subject" value="New Contact Message — Don't Spike">
           <input type="hidden" name="_next" value="https://dontspike.com/contact/">
-          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_captcha" value="true">
           <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" name="name" placeholder="Your name">
+            <input type="text" name="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="email" name="email" placeholder="your@email.com">
+            <input type="email" name="email" placeholder="your@email.com" required>
           </div>
           <div class="form-group">
             <label>I'm reaching out as a...</label>
@@ -113,7 +114,7 @@ fbq('track', 'PageView');
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea name="message" placeholder="How can we work together?"></textarea>
+            <textarea name="message" placeholder="How can we work together?" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;">Send Message →</button>
         </form>
